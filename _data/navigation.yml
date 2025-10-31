@@ -14,19 +14,16 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Course"
-    url: /teaching/   
+  - title: "Courses"
+    url: /courses/   
 
-  - title: "Award"
-    url: /Award/    
+  - title: "Awards"
+    url: /Awards/    
 
-  - title: "Activity"
-    url: /activity/
-    
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Student"
+  - title: "Activities"
+    url: /activities/
+         
+  - title: "Students"
     url: /Student/
     
   # - title: "CV"
