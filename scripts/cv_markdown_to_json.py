@@ -248,6 +248,36 @@ def parse_skills(skills_text):
     
     return skills_entries
 
+def parse_news(pub_dir):
+    """Parse publications from the _newss directory."""
+    news = []
+    
+    if not os.path.exists(pub_dir):
+        return news
+    
+    for pub_file in sorted(glob.glob(os.path.join(pub_dir, "*.md"))):
+        with open(pub_file, 'r', encoding='utf-8') as file:
+            content = file.read()
+        
+        # Extract front matter
+        front_matter_match = re.match(r'^---\s*(.*?)\s*---', content, re.DOTALL)
+        if front_matter_match:
+            front_matter = yaml.safe_load(front_matter_match.group(1))
+            
+            # Extract new details
+            pub_entry = {
+                "name": front_matter.get('title', ''),
+                "publisher": front_matter.get('venue', ''),
+                "releaseDate": front_matter.get('date', ''),
+                "website": front_matter.get('paperurl', ''),
+                "summary": front_matter.get('excerpt', '')
+            }
+            
+            news.append(pub_entry)
+    
+    return news
+
+
 def parse_publications(pub_dir):
     """Parse publications from the _publications directory."""
     publications = []
