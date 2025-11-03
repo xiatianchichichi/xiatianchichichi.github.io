@@ -1,14 +1,12 @@
 ---
-title: "Paper Title Number 3"
+title: "Learning knowledge graph embedding with a dual-attention embedding network"
 collection: publications
 category: manuscripts
 permalink: /publication/2015-10-01-paper-title-number-3
-excerpt: 'This paper is about the number 3. The number 4 is left for future work.'
 date: 2015-10-01
-venue: 'Journal 1'
-slidesurl: 'https://academicpages.github.io/files/slides3.pdf'
-paperurl: 'https://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).'
+venue: 'Expert Systems with Applications'
+citation: 'Haichuan Fang, Youwei Wang, Zhen Tian, <strong>Yangdong Ye*</strong>. &quot;Learning knowledge graph embedding with a dual-attention embedding network.&quot; <i>Expert Systems with Applications</i>, 2023, 212:118806. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417422018243?via%3Dihub">Paper</a> <a href="https://github.com/hcfun/D-AEN">Code</a>'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+This study presents an innovative framework, namely learning knowledge graph embedding with a dual-attention embedding network (D-AEN), to jointly propagate and update the representations of both relations and entities via fusing neighborhood information. Here the dual attentions consist of a bidirectional attention mechanism and a relation-specific attention mechanism for jointly measuring the importance of neighborhoods in respectively learning entity and relation representations. Thus D-AEN enables elements like relations and entities to interact well semantically, which makes their learned representations retain more effective information of KGs. Extensive experimental results on three standard link prediction datasets demonstrate the superiority of D-AEN over several state-of-the-art approaches.
+
