@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --accent: #059669;
+            --accent-light: #10b981;
+            --warning: #dc2626;
+            --orange: #d97706;
+            --purple: #7c3aed;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --bg-white: #ffffff;
+            --bg-light: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --max-width: 880px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Navigation - Zitai Style */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+
+        /* Profile Section - Zitai Style */
+        .profile {
+            display: flex;
+            gap: 36px;
+            margin-bottom: 50px;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .profile-info h1 .cn-name {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .profile-position {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .profile-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-item:hover a {
+            color: white;
+        }
+
+        .profile-bio {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .profile-bio a {
+            font-weight: 500;
+        }
+
+        .research-interests {
+            margin-top: 18px;
+            padding: 16px 20px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--primary);
+        }
+
+        .research-interests strong {
+            color: var(--text-primary);
+        }
+
+        .research-interests em {
+            color: var(--primary);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            font-size: 1.2rem;
+        }
+
+        /* News List */
+        .news-list {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            align-items: flex-start;
+            transition: background 0.2s;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item:hover {
+            background: var(--bg-light);
+        }
+
+        .news-date {
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            min-width: 70px;
+        }
+
+        .news-content {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .news-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .news-tag.accept {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .news-tag.award {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .news-tag.talk {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .news-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Publications */
+        .pub-category {
+            margin-bottom: 30px;
+        }
+
+        .pub-category-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            padding: 10px 16px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        .pub-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+
+        .pub-item:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pub-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .pub-title a {
+            color: var(--text-primary);
+        }
+
+        .pub-title a:hover {
+            color: var(--primary);
+        }
+
+        .pub-authors {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .pub-authors .me {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .pub-venue {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .pub-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .pub-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .pub-tag.ccf-a {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .pub-tag.ccf-b {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .pub-tag.ccf-c {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .pub-tag.sci-1 {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .pub-tag.sci-2 {
+            background: #d5f5f6;
+            color: #0e7490;
+        }
+
+        .pub-tag.esi {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        .pub-tag.oral {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .pub-tag.spotlight {
+            background: #fce7f3;
+            color: #9d174d;
+        }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            background: var(--bg-light);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .pub-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Projects */
+        .project-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .project-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .project-date {
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            min-width: 110px;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .project-role {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Services - Zitai Style */
+        .service-section {
+            margin-bottom: 24px;
+        }
+
+        .service-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .service-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .service-tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Students Section */
+        .student-section {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .student-intro {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .student-intro strong {
+            color: var(--primary);
+        }
+
+        .student-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .student-year {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .student-year-badge {
+            flex-shrink: 0;
+            padding: 6px 14px;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .student-names {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding-top: 4px;
+        }
+
+        .student-award {
+            display: inline-block;
+            padding: 1px 8px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 4px;
+        }
+
+        .student-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Awards */
+        .award-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .award-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            align-items: flex-start;
+        }
+
+        .award-year {
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 50px;
+        }
+
+        .award-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .award-highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: var(--bg-white);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            margin: 0 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 140px;
+                height: 140px;
+                font-size: 2.5rem;
+            }
+
+            .profile-contact {
+                justify-content: center;
+            }
+
+            .research-interests {
+                text-align: left;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .project-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .student-year {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile, .section {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <span class="nav-name">Your Name</span>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#publications">Publications</a>
+                <a href="#projects">Projects</a>
+                <a href="#students">Students</a>
+                <a href="#awards">Awards</a>
+                <a href="#services">Services</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- ==================== Profile Section - Zitai Wang Style ==================== -->
+        <section class="profile" id="about">
+            <div class="profile-photo">YN</div>
+            <!-- 如果有照片，用下面的代码替换上面的 div：
+            <div class="profile-photo">
+                <img src="your-photo.jpg" alt="Your Name">
+            </div>
+            -->
+            <div class="profile-info">
+                <h1>Your Name <span class="cn-name">(中文名)</span></h1>
+                <p class="profile-position">
+                    博士，副教授，硕士生导师<br>
+                    某某大学 计算机学院
+                </p>
+                <div class="profile-contact">
+                    <span class="contact-item">📧 <a href="mailto:your@email.com">your@email.com</a></span>
+                    <span class="contact-item">🎓 <a href="https://scholar.google.com/" target="_blank">Google Scholar</a></span>
+                    <span class="contact-item">💻 <a href="https://github.com/" target="_blank">GitHub</a></span>
+                </div>
+                <p class="profile-bio">
+                    在这里写你的个人简介。可以介绍你的教育背景、研究方向、工作经历等。
+                    毕业于某某大学，主要从事某某方向研究。主持国家自然科学基金青年项目等，
+                    在 <strong>TKDE、TNNLS、AAAI、NeurIPS</strong> 等期刊或会议发表论文若干篇。
+                    合作导师包括 <a href="#">导师姓名</a>、<a href="#">合作者姓名</a> 等。
+                </p>
+                <div class="research-interests">
+                    <strong>研究方向：</strong>
+                    <em>知识图谱</em>、<em>推荐系统</em>、<em>自然语言处理</em>、<em>机器学习</em>。
+                    欢迎对以上研究方向感兴趣的学生联系交流！
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== News Section ==================== -->
+        <section class="section" id="news">
+            <h2 class="section-title"><span class="icon">📢</span> 最新消息 / News</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">2025.11</span>
+                    <span class="news-content">
+                        <span class="news-tag accept">录用</span>
+                        论文被 <span class="news-highlight">CCF A类会议 AAAI 2026</span> 录用！
+                    </span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.10</span>
+                    <span class="news-content">
+                        <span class="news-tag award">获奖</span>
+                        学生XXX获得 <span class="news-highlight">硕士研究生国家奖学金</span>！
+                    </span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.09</span>
+                    <span class="news-content">
+                        <span class="news-tag accept">录用</span>
+                        论文被 <span class="news-highlight">SCI一区期刊 Information Fusion</span> 录用！
+                    </span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.08</span>
+                    <span class="news-content">
+                        <span class="news-tag talk">报告</span>
+                        在 <span class="news-highlight">某某学术会议</span> 做口头报告。
+                    </span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.06</span>
+                    <span class="news-content">
+                        <span class="news-tag award">获奖</span>
+                        学生XXX获得 <span class="news-highlight">优秀毕业研究生</span>！
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Publications Section ==================== -->
+        <section class="section" id="publications">
+            <h2 class="section-title"><span class="icon">📝</span> 代表论文 / Publications</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                注：*代表通讯作者，详细列表见 
+                <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+            </p>
+
+            <!-- 研究方向一 -->
+            <div class="pub-category">
+                <div class="pub-category-title">🔬 研究方向一（如：知识图谱）</div>
+                
+                <div class="pub-item">
+                    <div class="pub-title">
+                        <a href="#" target="_blank">Multi-scale Dynamic Convolutional Network for Knowledge Graph Embedding</a>
+                    </div>
+                    <div class="pub-authors">
+                        Zhang Z, <span class="me">Your Name*</span>, et al.
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Knowledge and Data Engineering (TKDE), 2022, 34(5): 2335-2347.</div>
+                    <div class="pub-tags">
+                        <span class="pub-tag sci-1">SCI一区</span>
+                        <span class="pub-tag ccf-a">CCF A</span>
+                        <span class="pub-tag esi">ESI高被引</span>
+                    </div>
+                    <div class="pub-links">
+                        <a href="#" target="_blank" class="pub-link">[Paper]</a>
+                        <a href="#" target="_blank" class="pub-link">[Code]</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <div class="pub-title">
+                        <a href="#" target="_blank">Learning Knowledge Graph Embedding with Heterogeneous Relation Attention Networks</a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="me">Your Name</span>, Liu H, Zhang Z, et al.
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Neural Networks and Learning Systems (TNNLS), 2022, 33(8): 3961-3973.</div>
+                    <div class="pub-tags">
+                        <span class="pub-tag sci-1">SCI一区</span>
+                        <span class="pub-tag ccf-b">CCF B</span>
+                        <span class="pub-tag esi">ESI高被引</span>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <div class="pub-title">
+                        <a href="#" target="_blank">MyGram: Modality-aware Graph Transformer for Multi-modal Entity Alignment</a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="me">Your Name</span>, Qin Z, Luo X, et al.
+                    </div>
+                    <div class="pub-venue">Proceedings of the AAAI Conference on Artificial Intelligence (AAAI), 2026.</div>
+                    <div class="pub-tags">
+                        <span class="pub-tag ccf-a">CCF A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 研究方向二 -->
+            <div class="pub-category">
+                <div class="pub-category-title">🎯 研究方向二（如：推荐系统）</div>
+                
+                <div class="pub-item">
+                    <div class="pub-title">
+                        <a href="#" target="_blank">Structurally Refined Graph Transformer for Multimodal Recommendation</a>
+                    </div>
+                    <div class="pub-authors">
+                        Shi K (本科生), Zhang Y, <span class="me">Your Name*</span>.
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Multimedia (TMM), 2025.</div>
+                    <div class="pub-tags">
+                        <span class="pub-tag sci-1">SCI一区</span>
+                        <span class="pub-tag ccf-b">CCF B</span>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <div class="pub-title">
+                        <a href="#" target="_blank">A Unified Generalization Analysis of Re-Weighting and Logit-Adjustment for Imbalanced Learning</a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="me">Your Name</span>, Xu Q, Yang Z, et al.
+                    </div>
+                    <div class="pub-venue">Neural Information Processing Systems (NeurIPS), 2023.</div>
+                    <div class="pub-tags">
+                        <span class="pub-tag ccf-a">CCF A</span>
+                        <span class="pub-tag spotlight">Spotlight 3.1%</span>
+                    </div>
+                    <div class="pub-links">
+                        <a href="#" target="_blank" class="pub-link">[Paper]</a>
+                        <a href="#" target="_blank" class="pub-link">[Code]</a>
+                        <a href="#" target="_blank" class="pub-link">[Video]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Projects Section ==================== -->
+        <section class="section" id="projects">
+            <h2 class="section-title"><span class="icon">🔬</span> 科研项目 / Projects</h2>
+            <div class="project-list">
+                <div class="project-item">
+                    <span class="project-date">2023.01 - 2025.12</span>
+                    <div class="project-content">
+                        <div class="project-title">国家自然科学基金青年项目（项目编号）</div>
+                        <div class="project-role">主持</div>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <span class="project-date">2025.03 - 2027.02</span>
+                    <div class="project-content">
+                        <div class="project-title">省自然科学基金面上项目（项目编号）</div>
+                        <div class="project-role">主持</div>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <span class="project-date">2024.02 - 2026.01</span>
+                    <div class="project-content">
+                        <div class="project-title">教育部重点实验室开放基金</div>
+                        <div class="project-role">主持</div>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <span class="project-date">2021.01 - 2024.12</span>
+                    <div class="project-content">
+                        <div class="project-title">国家自然科学基金面上项目（项目编号）</div>
+                        <div class="project-role">参与</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Students Section ==================== -->
+        <section class="section" id="students">
+            <h2 class="section-title"><span class="icon">👨‍🎓</span> 学生培养 / Students</h2>
+            <div class="student-section">
+                <p class="student-intro">
+                    团队学生在 SCI 一区/二区、CCF A/B 类期刊和会议发表论文若干篇（其中<strong>本科生发表 SCI 一区论文 X 篇</strong>），
+                    获挑战杯等大学生学科竞赛<strong>全国一等奖 X 次</strong>、<strong>硕士研究生国家奖学金 X 人次</strong>。
+                    <br><br>
+                    欢迎计算机、人工智能等相关专业，具备扎实的数学、英语基础和编程能力，
+                    对知识图谱、推荐系统、自然语言处理等科研方向感兴趣的学生与本人联系，请附个人简历。
+                </p>
+                
+                <div class="student-grid">
+                    <div class="student-year">
+                        <span class="student-year-badge">2025级</span>
+                        <div class="student-names">
+                            学生A、学生B、学生C、学生D
+                        </div>
+                    </div>
+                    
+                    <div class="student-year">
+                        <span class="student-year-badge">2024级</span>
+                        <div class="student-names">
+                            学生E、学生F <span class="student-award">国奖</span>、学生G、学生H
+                        </div>
+                    </div>
+                    
+                    <div class="student-year">
+                        <span class="student-year-badge">2023级</span>
+                        <div class="student-names">
+                            学生I <span class="student-award">硕博连读</span>、学生J、学生K <span class="student-award">国奖</span>、学生L
+                        </div>
+                    </div>
+                    
+                    <div class="student-year">
+                        <span class="student-year-badge">2022级</span>
+                        <div class="student-names">
+                            学生M <span class="student-award">国奖</span> <span class="student-note">(已毕业，XX大学读博)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Awards Section ==================== -->
+        <section class="section" id="awards">
+            <h2 class="section-title"><span class="icon">🎖</span> 荣誉奖项 / Honors & Awards</h2>
+            <div class="award-list">
+                <div class="award-item">
+                    <span class="award-year">2025</span>
+                    <span class="award-content"><span class="award-highlight">某某人才计划</span></span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2024</span>
+                    <span class="award-content">NeurIPS 2024 Top Reviewer</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2023</span>
+                    <span class="award-content"><span class="award-highlight">省科技进步奖二等奖</span></span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2022</span>
+                    <span class="award-content">优秀毕业生</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== Academic Services Section ==================== -->
+        <section class="section" id="services">
+            <h2 class="section-title"><span class="icon">📖</span> 学术服务 / Academic Services</h2>
+            
+            <div class="service-section">
+                <h3 class="service-title">期刊审稿 / Journal Reviewer</h3>
+                <div class="service-list">
+                    <span class="service-tag">IEEE T-PAMI</span>
+                    <span class="service-tag">IEEE T-KDE</span>
+                    <span class="service-tag">IEEE T-NNLS</span>
+                    <span class="service-tag">IEEE T-MM</span>
+                    <span class="service-tag">ACM TKDD</span>
+                    <span class="service-tag">Information Fusion</span>
+                </div>
+            </div>
+            
+            <div class="service-section">
+                <h3 class="service-title">会议审稿 / Conference PC Member</h3>
+                <div class="service-list">
+                    <span class="service-tag">ICML 2025</span>
+                    <span class="service-tag">NeurIPS 2024-25</span>
+                    <span class="service-tag">ICLR 2025</span>
+                    <span class="service-tag">CVPR 2024-25</span>
+                    <span class="service-tag">AAAI 2024-26</span>
+                    <span class="service-tag">ACM MM 2023-25</span>
+                    <span class="service-tag">EMNLP 2024 (AC)</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Your Name · Last updated: November 2025</p>
+        <div class="footer-links">
+            <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <a href="#" target="_blank">University</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
