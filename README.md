@@ -105,7 +105,7 @@
 | News | 带标签的新闻动态 |
 | Publications | 按方向分类的论文 |
 | Projects | 科研项目列表 |
-| **Students** | **学生培养（已启用）** |
+| Students | 学生培养 |
 | Awards | 荣誉奖项 |
 | Services | 学术服务 |
 
